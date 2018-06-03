@@ -1,37 +1,88 @@
+@import "normalize";
 
 
-.container1 {
-  display: grid;
-  grid-template-columns: 75% 25%;
-  grid-template-rows: 8em;
+html {
+  font-size: 16px;
 }
-
-.container2 {
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 8em;
-}
-
-.item_1 {
-  background: red;
-}
-
-.item_2 {
-  background: yellow;
-}
-
-.item1 {
-  background: greenyellow;
-}
-
-.item2 {
-  background: blue;
-}
-
-.item3 {
-  background: magenta;
-}
-
-.item4 {
-  background: cyan;
+.slider {
+  width: 100%;
+  max-width: 100rem;
+  background: #9c9eff;
+  overflow: hidden;
+  position: relative;
+  max-height: 18.75rem;
+  .slider__slide {
+    width: 100%;
+    min-height: 18.75rem;
+    background: #aeff9e;
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    &.slider__slide--active {  // & when element have both two clases
+    }
+    .slider__description {
+      background: #0b97c4;
+    }
+  }
+  .description {
+    display: grid;
+    grid-template-areas:
+      "title title"
+      "description link";
+    padding: 10px;
+    .description__hdl {
+      margin: 0;
+      color: #e7ffda;
+      font-family: sans-serif;
+      grid-area: title;
+    }
+    .description__text {
+      font-family: sans-serif;
+      grid-area: description;
+      margin: 0;
+    }
+    .description__link {
+      font-family: sans-serif;
+      grid-area: link;
+      text-align: right;
+    }
+  }
+  .slider__nav {
+  }
+  .nav {
+    position: absolute;
+    z-index: 20;
+    top: calc(50% - 12px);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .nav__btn {
+      cursor: pointer;
+      overflow: hidden;
+      text-indent: -99999px;
+      margin: 5px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      &.nav__btn--prev {
+      }
+      &.nav__btn--next {
+      }
+    }
+  }
+  .paginator {
+    position: absolute;
+    z-index: 20;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .paginator__item {
+      margin: 2px;
+      cursor: pointer;
+      &.paginator__item--active {
+      }
+    }
+  }
 }
